@@ -20,8 +20,8 @@ mongoose.connect('mongodb://localhost:27017/DeckBuilder', {
 // Create a new item in the DeckBuilder: takes a title and a path to an image.
 app.post('/api/items', async (req, res) => {
 	const item = new Item({
-	title: req.body.title,
-	description: req.body.description,
+	name: req.body.title,
+	characteristics: req.body.characteristics,
 	path: req.body.path,
 	});
 	console.log(item);
@@ -45,8 +45,8 @@ app.post('/api/items', async (req, res) => {
 
 // Create a scheme for items in the DeckBuilder: a title and a path to an image.
 const itemSchema = new mongoose.Schema({
-	title: String,
-	description: String,
+	name: String,
+	characteristics: Object,
 	path: String,
 });
   
@@ -95,8 +95,8 @@ try {
 	let item = 	await Item.findOne({
 		_id: req.params.id
 	});
-	item.title = req.body.title;
-	item.description = req.body.description;
+	item.name = req.body.name;
+	item.characteristics = req.body.characteristics;
 	item.save();
 	res.sendStatus(200);
 	} catch (error) {
