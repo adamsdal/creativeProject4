@@ -1,20 +1,37 @@
 <template>
 <div id="app">
-  <div class="header">
-    <router-link style="width: 10%" to="/">
+	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+	<router-link style="width: 10%" to="/">
       <div class="logo">
         <img style="width: 100%" src="/deckbuild.png">
       </div>
     </router-link>
-    <div class="title">
-      <h1>Fantasy Deck Builder of Destiny 9000</h1>
-    </div>
-  </div>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+			<div class="headerLink">
+				<router-link class="nav-link" style="color:white;" to="/">Home</router-link>
+			</div>
+			</li>
+			<li class="nav-item">
+				<router-link class="nav-link" style="color:white;" to="/admin">Deck Builder</router-link>
+			</li>
+			<li class="nav-item">
+				<router-link class="nav-link" style="color:white;" to="/viewer">Deck Viewer</router-link>
+			</li>
+		</ul>
+		</div>
+	</nav>
   <div class="content">
     <router-view />
   </div>
   <div class="footer">
     <router-link to="/deckBuilder">Deck Builder</router-link>
+    <a>Wanna view that freaking sweet git repository? Yeah baby! Click it up right here! You've viewed Dallan and Dallin's project. </a>
   </div>
 </div>
 </template>
@@ -22,6 +39,11 @@
 <style>
 html {
   box-sizing: border-box;
+}
+
+.headerLink {
+	display:flex;
+	
 }
 
 body {

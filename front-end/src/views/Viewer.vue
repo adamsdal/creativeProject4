@@ -1,7 +1,16 @@
 <template>
 <div>
-	<h1>Fantasy Deck Builder of Destiny 9000</h1>
-	<p>if you needin tu git rekt..... git sum</p>
+	<h1>This is the Viewer page. Please view. Please.</h1>
+	<div>
+		<section class="image-gallery">
+			<div class="image" v-for="item in items" :key="item.id">
+				<h2>{{item.title}}</h2>
+				<img :src="item.path" />
+				<p>Description:</p>
+				<p>{{item.description}}</p>
+			</div>
+		</section>
+	</div>
 </div>
 </template>
 

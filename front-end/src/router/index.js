@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import DeckBuilder from '../views/DeckBuilder.vue'
+import Viewer from '../views/Viewer.vue'
 
 Vue.use(VueRouter)
 
@@ -14,6 +15,11 @@ const routes = [{
     path: '/deckBuilder',
     name: 'DeckBuilder',
     component: DeckBuilder
+  },
+  {
+    path: '/viewer',
+    name: 'viewer',
+    component: Viewer
   }
 ]
 
