@@ -13,11 +13,11 @@ app.use(bodyParser.urlencoded({
 const mongoose = require('mongoose');
 
 // connect to the database
-mongoose.connect('mongodb://localhost:27017/museum', {
+mongoose.connect('mongodb://localhost:27017/DeckBuilder', {
   useNewUrlParser: true
 });
 
-// Create a new item in the museum: takes a title and a path to an image.
+// Create a new item in the DeckBuilder: takes a title and a path to an image.
 app.post('/api/items', async (req, res) => {
 	const item = new Item({
 	title: req.body.title,
@@ -43,14 +43,14 @@ app.post('/api/items', async (req, res) => {
 	}
 });
 
-// Create a scheme for items in the museum: a title and a path to an image.
+// Create a scheme for items in the DeckBuilder: a title and a path to an image.
 const itemSchema = new mongoose.Schema({
 	title: String,
 	description: String,
 	path: String,
 });
   
-// Create a model for items in the museum.
+// Create a model for items in the DeckBuilder.
 const Item = mongoose.model('Item', itemSchema);
 
 // Upload a photo. Uses the multer middleware for the upload and then returns
@@ -65,7 +65,7 @@ app.post('/api/photos', upload.single('photo'), async (req, res) => {
 	});
 });
 
-// Get a list of all of the items in the museum.
+// Get a list of all of the items in the DeckBuilder.
 app.get('/api/items', async (req, res) => {
 	try {
 	let items = await Item.find();
