@@ -1,14 +1,17 @@
 <template>
-<div class="admin">
-  <h1>The Admin Page!</h1>
+<div class="deckbuilder">
+  <h1>Build Your Deck!</h1>
     <div class="heading">
       <div class="circle">1</div>
-      <h2>Add an Item</h2>
+      <h2>Add a Card</h2>
     </div>
     <div class="add">
       <div class="form">
-        <input v-model="title" placeholder="Title">
-		<input v-model="description" placeholder="Description" style="margin-left: 8px;">
+        <input v-model="name" placeholder="Name">
+        <p></p>
+        <input v-model="characteristicName" placeholder="Type">
+        <input v-model="characteristicValue" placeholder="Value">
+        <button @click="addCharacteristic">+ Characteristic</button>
         <p></p>
         <input type="file" name="photo" @change="fileChanged">
         <button @click="upload">Upload</button>
@@ -20,11 +23,11 @@
     </div>
 	<div class="heading">
       <div class="circle">2</div>
-      <h2>Edit/Delete an Item</h2>
+      <h2>Edit/Delete a Card</h2>
     </div>
     <div class="edit">
       <div class="form">
-        <input v-model="findTitle" placeholder="Search">
+        <input v-model="findName" placeholder="Search">
         <div class="suggestions" v-if="suggestions.length > 0">
           <div class="suggestion" v-for="s in suggestions" :key="s.id" @click="selectItem(s)">{{s.title}}
           </div>
@@ -50,20 +53,29 @@
 <script>
 import axios from 'axios';
 export default {
-  name: 'Admin',
+  name: 'DeckBuilder',
   data() {
     return {
-      title: "",
+      name: "",
+      characteristicName: "",
+      characteristicValue: "",
       file: null,
       addItem: null,
-		items: [],
-		findTitle: "",
+      items: [],
+      findName: "",
       findItem: null,
-		description: "",
-
+		  characteristics: {},
+      newCharacteristicID: 0,
     }
   },
   methods: {
+    addCharacteristic() {
+      if (this.characteristicName === "" || this.characteristicValue === "") {
+        alert("Characteristic is missing a name/value");
+        return;
+      }
+      this.characteristics[this.characteristicName] = this.characteristicValue;
+    },
     fileChanged(event) {
       this.file = event.target.files[0]
     },
@@ -73,8 +85,8 @@ export default {
         formData.append('photo', this.file, this.file.name)
         let r1 = await axios.post('/api/photos', formData);
         let r2 = await axios.post('/api/items', {
-          title: this.title,
-		description: this.description,
+          name: this.name,
+		      characteristics: this.characteristics,
           path: r1.data.path
         });
         this.addItem = r2.data;
@@ -92,7 +104,7 @@ export default {
 		}
 	},
 	selectItem(item) {
-      this.findTitle = "";
+      this.findName = "";
       this.findItem = item;
     },
 	async deleteItem(item) {
@@ -108,12 +120,12 @@ export default {
 	async editItem(item) {
       try {
         await axios.put("/api/items/" + item._id, {
-          title: this.findItem.title,
-		description: this.findItem.description,
+          name: this.findItem.name,
+		      characteristics: this.findItem.characteristics,
         });
         this.findItem = null;
         this.getItems();
-		console.log(this.items);
+		    console.log(this.items);
         return true;
       } catch (error) {
         console.log(error);
@@ -127,8 +139,8 @@ export default {
   },
   computed: {
     suggestions() {
-      let items = this.items.filter(item => item.title.toLowerCase().startsWith(this.findTitle.toLowerCase()));
-      return items.sort((a, b) => a.title > b.title);
+      let items = this.items.filter(item => item.name.toLowerCase().startsWith(this.findName.toLowerCase()));
+      return items.sort((a, b) => a.name > b.name);
     }
   },
 

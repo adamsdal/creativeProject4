@@ -14,7 +14,7 @@
     <router-view />
   </div>
   <div class="footer">
-    <router-link to="/admin">Deck Builder</router-link>
+    <router-link to="/deckBuilder">Deck Builder</router-link>
   </div>
 </div>
 </template>
