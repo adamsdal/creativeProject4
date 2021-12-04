@@ -30,7 +30,7 @@
     <router-view />
   </div>
   <div class="footer">
-    <a>Wanna view that freaking sweet git repository? Yeah baby! Click it up right here! You've viewed Dallan and Dallin's project. </a>
+    <a href="https://github.com/adamsdal/creativeProject4">Wanna view that freaking sweet git repository? Yeah baby! Click it up right here! You've viewed Dallan and Dallin's project. </a>
   </div>
 </div>
 </template>
