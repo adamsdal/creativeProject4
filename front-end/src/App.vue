@@ -1,20 +1,20 @@
 <template>
 <div id="app">
   <div class="header">
-    <router-link to="/">
+    <router-link style="width: 10%" to="/">
       <div class="logo">
-        <img src="/ordinary.png">
+        <img style="width: 100%" src="/deckbuild.png">
       </div>
     </router-link>
     <div class="title">
-      <h1>Museum of Ordinary Objects</h1>
+      <h1>Fantasy Deck Builder of Destiny 9000</h1>
     </div>
   </div>
   <div class="content">
     <router-view />
   </div>
   <div class="footer">
-    <router-link to="/admin">Admin</router-link>
+    <router-link to="/admin">Deck Builder</router-link>
   </div>
 </div>
 </template>
