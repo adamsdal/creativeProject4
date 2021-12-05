@@ -18,7 +18,7 @@
 			</div>
 			</li>
 			<li class="nav-item">
-				<router-link class="nav-link" style="color:white;" to="/admin">Deck Builder</router-link>
+				<router-link class="nav-link" style="color:white;" to="/deckBuilder">Deck Builder</router-link>
 			</li>
 			<li class="nav-item">
 				<router-link class="nav-link" style="color:white;" to="/viewer">Deck Viewer</router-link>

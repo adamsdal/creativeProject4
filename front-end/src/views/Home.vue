@@ -1,34 +1,35 @@
 <template>
 <div>
-	<h1>Fantasy Deck Builder of Destiny 9000</h1>
-	<p>if you needin tu git rekt..... git sum</p>
+	<div class="holderContainer">
+		<h1>Fantasy Deck Builder of Destiny 9000</h1>
+		<p class="subParagraph">Have you ever wanted to have the most amazing deck building experience this world can offer?
+			 Have you ever considered buying green beans from the store? Since I already know the answer to both of these questions 
+			 is an obvious yes, I'll just introduce to you the solution to one of your yearnings.... THE FANTASY DECK BUILDER 9000
+		</p>
+		<div class="spacer"></div>
+		<h2>Build cross-universe teams</h2>
+		<p class="subParagraph">We allow you to build your team across mutliple universes of characters</p>
+		<div class="spacer"></div>
+		<h2>Customize your cards</h2>
+		<p class="subParagraph">The ultimate flexibility is allowed in making your deck combinations as you can make your own categories, make your own stats, and uploading your own pictures</p>
+		<div class="spacer"></div>
+		<h2>View your ultimate team</h2>
+		<p class="subParagraph">After you build your custom team you can view them all together to see the team of ages you've built</p>
+		<div class="spacer"></div>
+		<img src="https://static.wikia.nocookie.net/dragonball/images/8/82/Zuu.png/revision/latest/scale-to-width-down/912?cb=20170206133812">
+		<div class="spacer"></div>
+	</div>
 </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import axios from 'axios';
 export default {
   name: 'Home',
     data() {
     return {
-     items: [],
+
     }
-  },
-  created() {
-    this.getItems();
-  },
-    methods: {
-    async getItems() {
-      try {
-        let response = await axios.get("/api/items");
-        this.items = response.data;
-        return true;
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  },
+  }
 
   
 }
@@ -36,8 +37,40 @@ export default {
 
 
 <style scoped>
-.image h2 {
-  font-style: italic;
+h1 {
+  font-weight: bold;
+  color: #202020;
+  font-size: 40px;
+}
+
+h2 {
+	font-weight: bold;
+  color: #202020;
+  font-size: 35px;
+}
+
+.spacer {
+	height:25px;
+	width:100%;
+}
+
+.subParagraph {
+	margin-left: 12px;
+	color: #404040;
+}
+
+.holderLeft {
+	width: 65%;
+	min-width: 400px;
+}
+
+.holderRight {
+	width: 65%;
+	min-width: 400px;
+}
+
+.holderContainer {
+	width: 90%;
 }
 
 /* Masonry */
