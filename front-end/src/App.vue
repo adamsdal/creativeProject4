@@ -30,7 +30,6 @@
     <router-view />
   </div>
   <div class="footer">
-    <router-link to="/deckBuilder">Deck Builder</router-link>
     <a>Wanna view that freaking sweet git repository? Yeah baby! Click it up right here! You've viewed Dallan and Dallin's project. </a>
   </div>
 </div>

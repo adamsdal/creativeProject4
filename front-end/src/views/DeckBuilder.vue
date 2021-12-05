@@ -29,19 +29,22 @@
       <div class="form">
         <input v-model="findName" placeholder="Search">
         <div class="suggestions" v-if="suggestions.length > 0">
-          <div class="suggestion" v-for="s in suggestions" :key="s.id" @click="selectItem(s)">{{s.title}}
+          <div class="suggestion" v-for="s in suggestions" :key="s.id" @click="selectItem(s)">{{s.name}}
           </div>
         </div>
       </div>
       <div class="upload" v-if="findItem">
-        <input v-model="findItem.title">
-		<input v-model="findItem.description" style="margin-left: 8px;">
+        <input v-model="findItem.name">
+        <p></p>
+        <div v-for="(value, name) in findItem.characteristics" :key="name">
+          <label>{{name}}: <input v-model="findItem.characteristics[name]"></label>
+        </div>
         <p></p>
         <img :src="findItem.path" />
       </div>
       <div class="actions" v-if="findItem">
         <button @click="deleteItem(findItem)">Delete</button>
-		<button @click="editItem(findItem)">Edit</button>
+		    <button @click="editItem(findItem)">Edit</button>
       </div>
     </div>
 
@@ -175,9 +178,9 @@ export default {
 
 .circle {
   border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  padding: 8px;
+  width: 28px;
+  height: 28px;
+  padding: 4px;
   background: #333;
   color: #fff;
   text-align: center
@@ -220,4 +223,7 @@ button {
   color: #fff;
 }
 
+.deck-builder {
+
+}
 </style>

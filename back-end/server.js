@@ -20,7 +20,7 @@ mongoose.connect('mongodb://localhost:27017/DeckBuilder', {
 // Create a new item in the DeckBuilder: takes a title and a path to an image.
 app.post('/api/items', async (req, res) => {
 	const item = new Item({
-	name: req.body.title,
+	name: req.body.name,
 	characteristics: req.body.characteristics,
 	path: req.body.path,
 	});
