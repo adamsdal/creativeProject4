@@ -1,13 +1,15 @@
 <template>
 <div>
-	<h1>This is the Viewer page. Please view. Please.</h1>
+	<h1>This is your team!</h1>
 	<div>
 		<section class="image-gallery">
 			<div class="image" v-for="item in items" :key="item.id">
-				<h2>{{item.title}}</h2>
+				<h2>{{item.name}}</h2>
 				<img :src="item.path" />
-				<p>Description:</p>
-				<p>{{item.description}}</p>
+				<p>Characterisics:</p>
+        <div v-for="(value, name) in item.characteristics" :key="name">
+          <p>{{name}}: {{value}}</p>
+        </div>
 			</div>
 		</section>
 	</div>

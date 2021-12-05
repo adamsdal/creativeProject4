@@ -69,7 +69,6 @@ export default {
       findName: "",
       findItem: null,
 		  characteristics: {},
-      newCharacteristicID: 0,
     }
   },
   methods: {
@@ -79,6 +78,8 @@ export default {
         return;
       }
       this.characteristics[this.characteristicName] = this.characteristicValue;
+      this.characteristicName = "";
+      this.characteristicValue = "";
     },
     fileChanged(event) {
       this.file = event.target.files[0]
