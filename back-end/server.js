@@ -37,7 +37,7 @@ app.post('/api/items', async (req, res) => {
 // Configure multer so that it will upload to '../front-end/public/images'
 	const multer = require('multer')
 	const upload = multer({
-	dest: '../front-end/public/images/',
+	dest: '/var/www/creative4.dallanadamson.com/images/',
 	limits: {
 	fileSize: 10000000
 	}
