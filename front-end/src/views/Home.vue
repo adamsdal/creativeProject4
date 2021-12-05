@@ -16,7 +16,7 @@
 		<h2>View your ultimate team</h2>
 		<p class="subParagraph">After you build your custom team you can view them all together to see the team of ages you've built</p>
 		<div class="spacer"></div>
-		<img src="https://static.wikia.nocookie.net/dragonball/images/8/82/Zuu.png/revision/latest/scale-to-width-down/912?cb=20170206133812">
+		<img src="../../public/team.png">
 		<div class="spacer"></div>
 	</div>
 </div>
