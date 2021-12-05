@@ -21,6 +21,7 @@
         <img :src="addItem.path" />
       </div>
     </div>
+    <hr>
 	<div class="heading">
       <div class="circle">2</div>
       <h2>Edit/Delete a Card</h2>
@@ -181,8 +182,8 @@ export default {
   width: 28px;
   height: 28px;
   padding: 4px;
-  background: #333;
-  color: #fff;
+  background: rgb(43, 138, 19);
+  color: rgb(255, 255, 255);
   text-align: center
 }
 
